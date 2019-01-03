@@ -1,5 +1,7 @@
 // credit: https://github.com/netlify/functions/blob/master/src/lambda/hello_fetch.js#L1
-import fetch from "node-fetch";
+//import fetch from "node-fetch";
+
+const fetch = require('node-fetch');
 
 exports.handler = async (event, context, callback) => {
 	

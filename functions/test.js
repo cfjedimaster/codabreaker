@@ -9,7 +9,7 @@ exports.handler = function(event, context, callback) {
 	console.log('data is '+JSON.stringify(data));
 
 	callback(null, {
-		body:data
+		body:"foo"
 	});
 
 }

@@ -22,6 +22,6 @@ exports.handler = async (event, context) => {
 			statusCode: 200,
 			body: "Hello, World"
 	  };
-	}, 3000);
+	}, 2000);
 	
 };

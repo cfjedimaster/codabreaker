@@ -17,7 +17,7 @@ exports.handler = async (event, context, callback) => {
 */
 
 exports.handler = async (event, context) => {
-	return setTimeout(function() {  
+	return setTimeout(() => {  
 		return {
 			statusCode: 200,
 			body: "Hello, World"

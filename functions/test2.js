@@ -24,11 +24,12 @@ exports.handler = async (event, context, callback) => {
 			body: "Hello, World"
 		};
 		*/
+		console.log('lets run that damn callback');
 		callback(null, {
 			statusCode:200,
 			body:"Hello!"
 		});
-		
+
 	}, 2000);
 	
 };

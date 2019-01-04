@@ -35,10 +35,12 @@ exports.handler = async (event, context, callback) => {
 	*/
 	return new Promise((resolve, reject) => {
 
-		resolve({
-			statusCode:200,
-			body:"fucking promises"
-		});
+		setTimeout(() => {
+			resolve({
+				statusCode:200,
+				body:"fucking promises"
+			});
+		}, 2000);
 
 	});
 };

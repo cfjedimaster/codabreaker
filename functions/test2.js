@@ -16,12 +16,19 @@ exports.handler = async (event, context, callback) => {
 }
 */
 
-exports.handler = async (event, context) => {
-	return setTimeout(() => {  
+exports.handler = async (event, context, callback) => {
+	return setTimeout(() => { 
+		/* 
 		return {
 			statusCode: 200,
 			body: "Hello, World"
-	  };
+		};
+		*/
+		callback(null, {
+			statusCode:200,
+			body:"Hello!"
+		});
+		
 	}, 2000);
 	
 };

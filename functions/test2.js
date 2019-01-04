@@ -38,7 +38,7 @@ exports.handler = async (event, context, callback) => {
 		setTimeout(() => {
 			resolve({
 				statusCode:200,
-				body:"fucking promises"
+				body:"fucking promises1111"
 			});
 		}, 2000);
 

@@ -17,19 +17,28 @@ exports.handler = async (event, context, callback) => {
 */
 
 exports.handler = async (event, context, callback) => {
+	/*
 	return setTimeout(() => { 
-		/* 
-		return {
-			statusCode: 200,
-			body: "Hello, World"
-		};
-		*/
+		
+		//return {
+		//	statusCode: 200,
+		//	body: "Hello, World"
+		//};
+		
 		console.log('lets run that damn callback');
 		callback(null, {
 			statusCode:200,
 			body:"Hello!"
 		});
 
-	}, 2000);
-	
+	}, 1200);
+	*/
+	return new Promise((resolve, reject) => {
+
+		resolve({
+			statusCode:200,
+			body:"fucking promises"
+		});
+
+	});
 };

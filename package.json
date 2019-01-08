@@ -1,0 +1,26 @@
+{
+  "name": "codabreaker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "netlify-lambda": "^1.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start:lambda": "netlify-lambda serve functions",
+    "build:lambda": "netlify-lambda build functions"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cfjedimaster/codabreaker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cfjedimaster/codabreaker/issues"
+  },
+  "homepage": "https://github.com/cfjedimaster/codabreaker#readme"
+}

@@ -6,12 +6,16 @@ exports.handler = (event, context, callback) => {
 	//console.log('event, right? '+JSON.stringify(event.payload));
 	console.log('EVENT KEYS');
 	
-	for(let foo in event) {
-		console.log('foo is '+foo);
-	}
+	let test = event.body;
+	let test2 = JSON.parse(test);
 	
+	console.log('ok i have test2');
+	for(let key in test2) {
+		console.log('keys in test2 '+key);
+	}
+
 	//console.log(JSON.stringify(event.body));
-	console.log('\nBODY');
+	console.log('END OF TEST');
 
 	callback(null, {
 		body:'um'

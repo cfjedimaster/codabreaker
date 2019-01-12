@@ -6,7 +6,7 @@ exports.handler = (event, context, callback) => {
 	//console.log('event, right? '+JSON.stringify(event.payload));
 	console.log('EVENT');
 	for(let foo in event) {
-		console.log('foo is '+foo);
+		console.log('foo is '+foo+ ' = ' +JSON.stringify(event[foo]));
 	}
 
 	callback(null, {

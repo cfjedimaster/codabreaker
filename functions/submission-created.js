@@ -5,10 +5,14 @@ exports.handler = (event, context, callback) => {
 
 	//console.log('event, right? '+JSON.stringify(event.payload));
 	console.log('EVENT');
+	/*
 	for(let foo in event) {
 		console.log('foo is '+foo+ ' = ' +JSON.stringify(event[foo]));
 	}
-
+	*/
+	console.log(event.body);
+	console.log('\nBODY');
+	
 	callback(null, {
 		body:'um'
 	});

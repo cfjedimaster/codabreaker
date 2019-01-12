@@ -10,9 +10,9 @@ exports.handler = (event, context, callback) => {
 		console.log('foo is '+foo+ ' = ' +JSON.stringify(event[foo]));
 	}
 	*/
-	console.log(event.body);
+	console.log(JSON.stringify(event.body));
 	console.log('\nBODY');
-	
+
 	callback(null, {
 		body:'um'
 	});

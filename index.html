@@ -6,9 +6,22 @@
 	<title>Page Title</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-	<script src="main.js"></script>
+	<style>
+	[v-cloak] {display: none}
+	</style>
 </head>
 <body>
-	whatever
+
+	<div id="app" v-cloak>
+		<p>tbd - more text here...</p>
+		<ul>
+			<li v-for="issue in issues">
+				<a :href="issue.long_archive_url">{{issue.title}} ({{issue.send_time}})</a>
+			</li>
+		</ul>
+	</div>
+
+	<script src="https://unpkg.com/vue"></script>
+	<script src="main.js"></script>
 </body>
 </html>

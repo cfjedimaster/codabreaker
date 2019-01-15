@@ -5,13 +5,5 @@ exports.handler = (event, context, callback) => {
 	let payload = JSON.parse(event.body).payload;
 	
 	console.log('testing payload '+JSON.stringify(payload));
-
-	/*
-	callback(null, {
-		body:'um'
-	});
-	*/
-
-	callback(new Error('Oops!'));
 	
 };

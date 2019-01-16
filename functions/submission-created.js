@@ -12,7 +12,7 @@ exports.handler = (event, context, callback) => {
 	let from_email = new helper.Email(payload.data.email);
 	let to_email = new helper.Email('raymondcamden@gmail.com');
 	let subject = 'Contact Form Submission';
-
+console.log('key is '+SG_KEY);
 	console.log('testing payload '+JSON.stringify(payload));
 
 	let date = new Date();

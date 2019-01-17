@@ -68,7 +68,7 @@ ${key}:			${payload.data[key]}
 			console.log(error.response.body);
 		}
 	});
-
+	console.log('And done...');
 };
 
 async function analyze(str) {

@@ -66,7 +66,7 @@ ${key}:			${payload.data[key]}
 	sg.API(request, function(error, response) {
 		if(error) {
 			console.log(error.response.body);
-		}
+		} else console.log(response);
 	});
 	console.log('And done...');
 };

@@ -40,6 +40,7 @@ exports.handler = async (event, context, callback) => {
 	let subject = 'Contact Form Submission';
 
 	if(toneString.length > 0) subject += ` [Tone: ${toneString}]`;
+	console.log('subject for mail is '+subject);
 	
 	let date = new Date();
 	let content = `

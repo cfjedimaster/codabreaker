@@ -2,7 +2,7 @@ const helper = require('sendgrid').mail;
 const SG_KEY = process.env.SENDGRID;
 
 const axios = require('axios');
-const apiRoot = 'https://gateway.watsonplatform.net/tone-analyzer/api';
+const apiRoot = 'https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2017-09-21';
 const TA_KEY = process.env.TONEANALZYER;
 
 exports.handler = async (event, context, callback) => {

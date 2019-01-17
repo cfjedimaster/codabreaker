@@ -55,7 +55,7 @@ ${key}:			${payload.data[key]}
 async function analyze(str) {
 	console.log('going to tone analzye '+str);
 	console.log(apiRoot +' '+TA_KEY);
-	return axios({
+	axios({
 		method:'post', 
 		url:apiRoot,
 		body:str,
@@ -73,13 +73,4 @@ async function analyze(str) {
 	.catch(err => {
 		console.log('error in TA', err);
 	});
-	console.log('past the call');
-
-
-	/*
-	curl -X POST -u "apikey:{apikey}" \
-	--header "Content-Type: application/json" \
-	--data-binary @{path_to_file}tone.json \
-	"{url}/v3/tone?version=2017-09-21"
-	*/
 }

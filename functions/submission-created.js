@@ -54,22 +54,26 @@ ${key}:			${payload.data[key]}
 async function analyze(str) {
 	console.log('going to tone analzye '+str);
 	console.log(apiRoot +' '+TA_KEY);
-	
-	axios({
-		method:'post', 
-		url:apiRoot,
-		body:str,
-		auth:{
-			'username':'apikey',
-			'password':TA_KEY
-		},
-	}).then(res => {
-		console.log('got result', res);
-		return res;
-	})
-	.catch(err => {
-		console.log('error in TA', err);
-	});
+	try {
+		axios({
+			method:'post', 
+			url:apiRoot,
+			body:str,
+			auth:{
+				'username':'apikey',
+				'password':TA_KEY
+			},
+		}).then(res => {
+			console.log('got result', res);
+			return res;
+		})
+		.catch(err => {
+			console.log('error in TA', err);
+		});
+	} catch(e) {
+		console.log('generic error', e);
+	}
+
 
 	/*
 	curl -X POST -u "apikey:{apikey}" \

@@ -53,7 +53,8 @@ ${key}:			${payload.data[key]}
 
 async function analyze(str) {
 	console.log('going to tone analzye '+str);
-
+	console.log(apiRoot +' '+TA_KEY);
+	
 	axios({
 		method:'post', 
 		url:apiRoot,

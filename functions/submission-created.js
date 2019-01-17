@@ -41,7 +41,7 @@ exports.handler = async (event, context, callback) => {
 
 	if(toneString.length > 0) subject += ` [Tone: ${toneString}]`;
 	console.log('subject for mail is '+subject);
-	
+
 	let date = new Date();
 	let content = `
 Form Submitted at ${date}
@@ -64,7 +64,7 @@ ${key}:			${payload.data[key]}
 		body: mail.toJSON()
 	});
 		
-	sg.API(request, function(error, response) {
+	await sg.API(request, function(error, response) {
 		if(error) {
 			console.log(error.response.body);
 		} else console.log(response);

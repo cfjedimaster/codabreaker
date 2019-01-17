@@ -1,11 +1,20 @@
+const helper = require('sendgrid').mail;
 const SG_KEY = process.env.SENDGRID;
 
-const helper = require('sendgrid').mail;
+const axios = require('axios');
+const apiRoot = 'https://gateway.watsonplatform.net/tone-analyzer/api';
+const TA_KEY = process.env.TONEANALZYER;
 
-exports.handler = (event, context, callback) => {
+exports.handler = async (event, context, callback) => {
 	console.log('submission created error testing');
 	
 	let payload = JSON.parse(event.body).payload;
+	let analysis = '';
+
+	//lets analyze the text
+	if(payload.data.comments && payload.data.comments.length) {
+		analysis = await analyze(payload.data.comments);
+	} 
 
 	// note - no validation - booooo
 	let from_email = new helper.Email(payload.data.email);
@@ -41,3 +50,29 @@ ${key}:			${payload.data[key]}
 	});
 
 };
+
+async function analyze(str) {
+	console.log('going to tone analzye '+str);
+
+	axios({
+		method:'post', 
+		url:apiRoot,
+		body:str,
+		auth:{
+			'username':'apikey',
+			'password':TA_KEY
+		},
+	}).then(res => {
+		return res;
+	})
+	.catch(err => {
+		console.log('error in TA', err);
+	});
+
+	/*
+	curl -X POST -u "apikey:{apikey}" \
+	--header "Content-Type: application/json" \
+	--data-binary @{path_to_file}tone.json \
+	"{url}/v3/tone?version=2017-09-21"
+	*/
+}

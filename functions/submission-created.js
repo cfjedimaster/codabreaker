@@ -63,6 +63,7 @@ async function analyze(str) {
 			'password':TA_KEY
 		},
 	}).then(res => {
+		console.log('got result', res);
 		return res;
 	})
 	.catch(err => {

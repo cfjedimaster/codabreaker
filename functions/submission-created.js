@@ -15,7 +15,8 @@ exports.handler = async (event, context, callback) => {
 	if(payload.data.comments && payload.data.comments.length) {
 		analysis = await analyze(payload.data.comments);
 	} 
-
+console.log('um hello', analysis);
+return;
 	// note - no validation - booooo
 	let from_email = new helper.Email(payload.data.email);
 	let to_email = new helper.Email('raymondcamden@gmail.com');

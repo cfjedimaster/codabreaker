@@ -2,7 +2,8 @@ const helper = require('sendgrid').mail;
 const SG_KEY = process.env.SENDGRID;
 
 const axios = require('axios');
-const apiRoot = 'https://gateway.watsonplatform.net/tone-analyzer/api/v3/tone?version=2017-09-21';
+
+const ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3')
 const TA_KEY = process.env.TONEANALZYER;
 
 exports.handler = async (event, context, callback) => {
@@ -10,18 +11,36 @@ exports.handler = async (event, context, callback) => {
 	
 	let payload = JSON.parse(event.body).payload;
 	let analysis = '';
+	let toneString = '';
 
 	//lets analyze the text
+	
 	if(payload.data.comments && payload.data.comments.length) {
 		analysis = await analyze(payload.data.comments);
+
+		/*
+		if we get results, its an array of tones, ex:
+
+		[ { score: 0.633327, tone_id: 'fear', tone_name: 'Fear' },
+		{ score: 0.84639, tone_id: 'tentative', tone_name: 'Tentative' } ]
+
+		So what we will do is create an analysis string based on tone_names where score > 0.5
+		*/
+		analysis = analysis.filter(t => t.score > 0.5);
+		// and now we'll build an array of just tones
+		let tones = analysis.map(t => t.tone_name);
+		// and then a string
+		toneString = tones.join(', ');
+
 	} 
-console.log('um hello', analysis);
-return;
+
 	// note - no validation - booooo
 	let from_email = new helper.Email(payload.data.email);
 	let to_email = new helper.Email('raymondcamden@gmail.com');
 	let subject = 'Contact Form Submission';
 
+	if(toneString.length > 0) subject += ` [Tone: ${toneString}]`;
+	
 	let date = new Date();
 	let content = `
 Form Submitted at ${date}
@@ -54,23 +73,30 @@ ${key}:			${payload.data[key]}
 
 async function analyze(str) {
 	console.log('going to tone analzye '+str);
-	console.log(apiRoot +' '+TA_KEY);
-	axios({
-		method:'post', 
-		url:apiRoot,
-		body:str,
-		headers:{
-			'Content-Type':'application/json'
-		},
-		auth:{
-			'username':'apikey',
-			'password':TA_KEY
-		},
-	}).then(res => {
-		console.log('got result', res.data);
-		return res.data;
-	})
-	.catch(err => {
-		console.log('error in TA', err);
+	
+	let toneAnalyzer = new ToneAnalyzerV3({
+		username: 'apikey',
+		password: TA_KEY,
+		version: '2017-09-21',
+		url: 'https://gateway.watsonplatform.net/tone-analyzer/api/'
 	});
+
+	const result = await new Promise((resolve, reject) => {
+		toneAnalyzer.tone(
+			{
+				tone_input: str,
+				content_type: 'text/plain'
+			},
+			function(err, tone) {
+				if (err) {
+					console.log(err);
+					reject(err);
+				} else {
+					resolve(tone.document_tone.tones);
+				}
+			}
+		);
+	});
+	return result;
+
 }

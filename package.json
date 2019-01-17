@@ -6,7 +6,8 @@
   "dependencies": {
     "axios": "^0.18.0",
     "netlify-lambda": "^1.1.1",
-    "sendgrid": "^5.2.3"
+    "sendgrid": "^5.2.3",
+    "watson-developer-cloud": "^3.16.0"
   },
   "devDependencies": {},
   "scripts": {

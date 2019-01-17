@@ -56,7 +56,8 @@ async function analyze(str) {
 	console.log('going to tone analzye '+str);
 	console.log(apiRoot +' '+TA_KEY);
 	try {
-		axios({
+		console.log('i entered the fucking try');
+		return axios({
 			method:'post', 
 			url:apiRoot,
 			body:str,
@@ -71,6 +72,7 @@ async function analyze(str) {
 		.catch(err => {
 			console.log('error in TA', err);
 		});
+		console.log('past the call');
 	} catch(e) {
 		console.log('generic error', e);
 	}

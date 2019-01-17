@@ -31,7 +31,7 @@ exports.handler = async (event, context, callback) => {
 		let tones = analysis.map(t => t.tone_name);
 		// and then a string
 		toneString = tones.join(', ');
-
+		console.log('it worked and i got '+toneString);
 	} 
 
 	// note - no validation - booooo

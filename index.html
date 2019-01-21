@@ -3,8 +3,10 @@
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Page Title</title>
+	<title>Coda Breaker</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+
 	<link rel="stylesheet" type="text/css" media="screen" href="main.css" />
 	<style>
 	[v-cloak] {display: none}
@@ -12,15 +14,29 @@
 </head>
 <body>
 
-	<div id="app" v-cloak>
-		<p>tbd - more text here...</p>
-		<ul>
-			<li v-for="issue in issues">
-				<a :href="issue.long_archive_url">{{issue.title}} ({{issue.send_time}})</a>
-			</li>
-		</ul>
-	</div>
+	<div class="content">
+		<h1 class="title">Coda Breaker</h1>
 
+		<p>
+			Coda Breaker is a music newsletter released (roughly) twice a month. It's curated by 
+			<a href="https://twitter.com/remotesynth">Brian Rinaldi</a> and <a href="https://www.raymondcamden.com">Raymond Camden<a>.
+		</p>
+
+		<p>
+			Follow us on <a href="https://twitter.com/codabreaker">Twitter</a> and sign up here <a href="https://bit.ly/codabreaker">https://bit.ly/codabreaker</a>.
+		</p>
+
+		<h2 class="pastIssues">Past Issues</h2>
+		<div id="app" v-cloak>
+			<ul>
+				<li v-for="issue in issues">
+					<a :href="issue.long_archive_url">{{issue.title}} ({{issue.send_time}})</a>
+				</li>
+			</ul>
+		</div>
+
+	</div>
+	
 	<script src="https://unpkg.com/vue"></script>
 	<script src="main.js"></script>
 </body>

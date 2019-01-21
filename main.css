@@ -1,0 +1,15 @@
+body {
+	background-color: #ffc6c6;
+}
+
+h1.title {
+	font-size: 80px;
+	text-align: center;
+	font-family: 'Press Start 2P', cursive;
+}
+
+div.content {
+	margin: 0 auto;
+	width: 50%;
+	font-family: Arial, Helvetica, sans-serif;
+}

@@ -1,7 +1,7 @@
 Vue.config.productionTip = false;
 Vue.config.devtools = false;
 
-const API = '//codabreaker.rocks/.netlify/functions/getIssues';
+const API = '//codabreaker.rocks/static.json';
 
 Vue.filter('dateFm', d => {
 	return d.split('T')[0];

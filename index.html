@@ -29,11 +29,11 @@
 		<h2 class="pastIssues">Past Issues</h2>
 
 		<div id="app" v-cloak>
+			<p v-if="issues.length == 0"><i>Loading past issues - be patient!</i></p>
 			<ul>
 				<li v-for="issue in issues">
 					<a :href="issue.long_archive_url" target="_new">{{issue.settings.title}} ({{issue.send_time | dateFm}})</a>
 				</li>
-
 			</ul>
 		</div>
 

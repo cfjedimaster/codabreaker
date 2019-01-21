@@ -27,16 +27,18 @@
 		</p>
 
 		<h2 class="pastIssues">Past Issues</h2>
+
 		<div id="app" v-cloak>
 			<ul>
 				<li v-for="issue in issues">
-					<a :href="issue.long_archive_url">{{issue.title}} ({{issue.send_time}})</a>
+					<a :href="issue.long_archive_url" target="_new">{{issue.settings.title}} ({{issue.send_time | dateFm}})</a>
 				</li>
+
 			</ul>
 		</div>
 
 	</div>
-	
+
 	<script src="https://unpkg.com/vue"></script>
 	<script src="main.js"></script>
 </body>

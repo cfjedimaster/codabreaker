@@ -3,7 +3,7 @@ console.log('Running build script');
 const axios = require('axios');
 const fs = require('fs');
 
-const apiRoot = 'https://us6.api.mailchimp.com/3.0/campaigns?list_id=d00ad8719a&fields=campaigns.long_archive_url,campaigns.send_time,campaigns.settings.title&status=sent&sort_field=sent';
+const apiRoot = 'https://us6.api.mailchimp.com/3.0/campaigns?list_id=d00ad8719a&fields=campaigns.long_archive_url,campaigns.send_time,campaigns.settings.title&status=sent&sort_field=sent&sort_dir=desc';
 
 axios({
 	method:'get', 

@@ -11,9 +11,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start:lambda": "netlify-lambda serve functions",
-    "build:lambda": "netlify-lambda build functions",
-    "build":"netlify-lambda build functions; node build.js"
+    "build":"node build.js"
   },
   "repository": {
     "type": "git",

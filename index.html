@@ -14,23 +14,24 @@
 </head>
 <body>
 
-	<div class="content">
+	<div class="content" id="app">
 		<h1 class="title">Coda Breaker</h1>
 
 		<p>
 			Coda Breaker is a music newsletter released (roughly) twice a month. It's curated by 
-			<a href="https://twitter.com/remotesynth">Brian Rinaldi</a> and <a href="https://www.raymondcamden.com">Raymond Camden<a>.
+			<a href="https://twitter.com/remotesynth">Brian Rinaldi</a> and <a href="https://www.raymondcamden.com">Raymond Camden<a>. Follow us on <a href="https://twitter.com/codabreaker">Twitter</a>.
 		</p>
 
 		<p>
-			Follow us on <a href="https://twitter.com/codabreaker">Twitter</a> and sign up here <a href="https://bit.ly/codabreaker">https://bit.ly/codabreaker</a>.
+			 Sign up here: <input type="email" v-model="email" placeholder="Email address"> <button @click="subscribe">Subsribe</button><br/>
+			 <span id="status">{{status}}</span>
 		</p>
 
 		<img src="imgs/rainbow_rule.gif">
 
 		<h2 class="pastIssues">Past Issues</h2>
 
-		<div id="app" v-cloak>
+		<div v-cloak>
 			<p v-if="issues.length == 0"><i>Loading past issues - be patient!</i></p>
 			<ul>
 				<li v-for="issue in issues">

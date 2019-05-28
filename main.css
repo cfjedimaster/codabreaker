@@ -17,3 +17,7 @@ div.content {
 a, a:visited {
 	color: black;
 }
+
+span#status {
+	font-weight: bold;
+}

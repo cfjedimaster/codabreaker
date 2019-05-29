@@ -1,3 +1,6 @@
+[Settings]
+ID = "402b8dc8-41d4-4654-bc81-4495c141b741"
+
 [build]
-	Functions = "lambda"
+	functions = "./functions"
 	Command = "npm run build"

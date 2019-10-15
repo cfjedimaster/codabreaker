@@ -6,6 +6,8 @@
   "dependencies": {
     "axios": "^0.18.0",
     "netlify-lambda": "^1.1.1",
+    "base-64": "^0.1.0",
+    "node-fetch": "^2.3.0",
     "sendgrid": "^5.2.3",
     "watson-developer-cloud": "^3.16.0"
   },

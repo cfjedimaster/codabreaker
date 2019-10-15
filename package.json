@@ -13,6 +13,7 @@
   },
   "devDependencies": {},
   "scripts": {
+    "prebuild": "cd functions/get-all && npm i",
     "build2":"netlify-lambda build functions; node build.js",
     "build": "node build.js"
   },
